@@ -15,7 +15,7 @@ export const EmployeeList = () => {
 
   return (
     <div>
-      <h1 className="my-5 text-center">Manage Students Record</h1>
+      <h1 className="my-5 text-center txtCol">Manage Students Record</h1>
       {/* {employees.length > 0 ? ( */}
 
       {employees.length > 0 ? (
@@ -60,7 +60,7 @@ export const EmployeeList = () => {
         </>
       ) : (
         <div>
-          <h3 className="text-center">No employees</h3>
+          <h3 className="text-center txtCol">No employees</h3>
         </div>
       )}
     </div>

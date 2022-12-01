@@ -5,6 +5,8 @@ import uuid from "react-uuid";
 import { useState, useEffect } from "react";
 import { editEmployee } from "./../service/localstorage";
 
+import "../styles/index.css";
+
 export const EmployeeForm = () => {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -47,38 +49,48 @@ export const EmployeeForm = () => {
         >
           Back
         </button>
-        <h1 className="text-center">{id ? "Edit" : "Add new"} Employee</h1>
+        <h1 className="text-center txtCol">
+          {id ? "Edit" : "Add new"} Student
+        </h1>
         <div />
       </div>
 
       <div className="card border-primary p-5 m-5">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label className="form-label mt-2" htmlFor="inputValid">
+            <label className=" form-label mt-2 fs-4" htmlFor="inputValid">
               Name
             </label>
             <input
               name="name"
               type="text"
+              placeholder="Enter your name"
               value={inputValues.name}
               onChange={handleInputChange}
               className="form-control"
               id="inputValid"
+              required
             />
           </div>
 
           <div className="form-group">
-            <label className="form-label mt-2" htmlFor="inputValid">
+            <label className="form-label mt-2 fs-4" htmlFor="inputValid">
               Email
             </label>
             <input
               name="email"
               type="email"
+              placeholder="Enter your email address"
               value={inputValues.email}
               onChange={handleInputChange}
               className="form-control"
               id="inputValid"
+              pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+              required
             />
+            <span class="form__error">
+              Please enter a valid email i.e abc@example.com
+            </span>
           </div>
 
           {/* <div className="form-group">
@@ -94,17 +106,23 @@ export const EmployeeForm = () => {
                     </div> */}
 
           <div className="form-group">
-            <label className="form-label mt-2" htmlFor="inputValid">
+            <label className="form-label mt-2 fs-4" htmlFor="inputValid">
               Phone
             </label>
             <input
               name="phone"
               type="tel"
+              pattern="[0-9]{12}"
               value={inputValues.phone}
               onChange={handleInputChange}
               className="form-control"
               id="inputValid"
+              required
+              placeholder="Enter phone number"
             />
+            <span class="form__error">
+              Please enter a valid phone number i.e 0-9 & max 12 characters
+            </span>
           </div>
 
           <div className="d-grid gap-2 mt-3">

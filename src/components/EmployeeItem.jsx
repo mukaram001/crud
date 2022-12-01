@@ -10,6 +10,7 @@ export const EmployeeItem = ({ employee, setEmployees }) => {
   const deleteEmployee = () => {
     removeEmployee(id);
     setEmployees(getListEmployees());
+    alert("Are you confirm to remove user");
   };
 
   return (
